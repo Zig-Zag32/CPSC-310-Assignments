@@ -33,6 +33,8 @@ public interface MemberDAO {
 
     long howMany(House house);
 
+    double avgNameLenOfHouse(House house);
+
     String houseMemberNames(House house);
 
     Optional<Member> highestSalary();

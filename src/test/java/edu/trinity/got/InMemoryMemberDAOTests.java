@@ -151,6 +151,13 @@ public class InMemoryMemberDAOTests {
     }
 
     @Test
+    public void avgNameLenOfTargaryens()
+    {
+        double avg = dao.avgNameLenOfHouse(House.TARGARYEN);
+        assertThat(avg).isCloseTo(7.5, within(0.1));
+    }
+
+    @Test
     public void lannisterNames() {
         String lannisterNames = dao.houseMemberNames(House.LANNISTER);
         assertThat(lannisterNames).isEqualTo("Jaime, Tyrion, Tywin, Cersei");

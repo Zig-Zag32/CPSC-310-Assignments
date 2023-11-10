@@ -159,6 +159,18 @@ public class InMemoryMemberDAO implements MemberDAO {
     }
 
     /**
+     * What is the average name length of the members of a given house?
+     */
+    @Override
+    public double avgNameLenOfHouse(House house) {
+        return allMembers.stream()
+                .filter(member -> member.house().equals(house))
+                .mapToInt(member -> member.name().length())
+                .summaryStatistics()
+                .getAverage();
+    }
+
+    /**
      * Return the names of a given house as a comma-separated string
      */
     @Override
